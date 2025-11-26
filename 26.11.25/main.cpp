@@ -2,15 +2,15 @@
 #include <vector>
 using namespace std;
 
-class Employee
+class Employer
 {
 protected:
 	string name;
 	int age;
 	string post;
 public:
-	Employee() {}
-	Employee(string n, int a, string p)
+	Employer() {}
+	Employer(string n, int a, string p)
 	{
 		name = n;
 		age = a;
@@ -29,11 +29,11 @@ public:
 	}
 };
 
-class Manager :public Employee
+class Manager :public Employer
 {
 public:
 	Manager() {}
-	Manager(string n, int a, string p) : Employee(n, a, p) {}
+	Manager(string n, int a, string p) : Employer(n, a, p) {}
 	double GetSalary()
 	{
 		return 15000 + rand() % 52001;
@@ -41,15 +41,15 @@ public:
 	void Print()
 	{
 		cout << "===================Manager===================" << endl;
-		Employee::Print();
+		Employer::Print();
 	}
 };
 
-class Developer :public Employee
+class Developer :public Employer
 {
 public:
 	Developer() {}
-	Developer(string n, int a, string p) : Employee(n, a, p) {}
+	Developer(string n, int a, string p) : Employer(n, a, p) {}
 	double GetSalary()
 	{
 		return 10000 + rand() % 25001;
@@ -57,7 +57,7 @@ public:
 	void Print()
 	{
 		cout << "==================Developer==================" << endl;
-		Employee::Print();
+		Employer::Print();
 	}
 };
 
@@ -65,7 +65,7 @@ int main()
 {
 	srand(unsigned(time(0)));
 
-	vector<Employee*> arr;
+	vector<Employer*> arr;
 	arr.push_back(new Manager("Bogdan", 17, "Main manager"));
 	arr.push_back(new Manager("Vova", 18, "Secondary manager"));
 	arr.push_back(new Developer("Anton", 17, "Coder"));
